@@ -1,0 +1,47 @@
+\documentclass[12pt, lot, lof]{puthesis}
+%\newcommand{\printmode}{}
+
+\title{The title}
+
+\newcommand{\mydoctype}{thesis}
+\doctype{\mydoctype}
+
+\degree{Master of Science}
+
+\newcommand{\authorName}{Author Name}
+\author{\authorName}
+
+\newcommand{\universityName}{University Name}
+\university{\universityName}
+
+\adviser{Prof. Apple}
+\adviserSec{Prof. Banana}
+\departmentPrefix{Department of}
+\department{Department Name}
+\company{Company Name}
+\companycountry{Country}
+\submitted{May 2017}
+
+\input{_common}
+\input{_nghiaStyle}
+
+\authorship{\input{authorship}}
+\theAbstract{\input{abstract}}
+\acknowledgments{\input{acknowledgments}}
+
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{blindtext}
+\usepackage[font=small,labelfont=bf,margin=1cm]{caption}
+
+\begin{document}
+\makefrontmatter
+
+\include{1_intro}
+\include{2_state}
+\include{3_solution}
+\include{4_evaluation}
+\include{5_conclusion}
+
+\input{bib}
+\end{document}

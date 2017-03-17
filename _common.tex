@@ -1,0 +1,33 @@
+\ifdefined\printmode
+	\usepackage{url}
+\else
+	\usepackage{hyperref}
+	\ifdefined\proquestmode	
+		\hypersetup{bookmarksnumbered}
+		\makeatletter
+		\hypersetup{pdftitle=\@title,pdfauthor=\@author}
+		\makeatother
+	\else
+		\hypersetup{colorlinks,bookmarksnumbered}
+		\makeatletter
+		\hypersetup{pdftitle=\@title,pdfauthor=\@author}
+		\makeatother
+	\fi
+\fi
+
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.6}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\setcounter{dbltopnumber}{2}
+\renewcommand{\dbltopfraction}{0.66}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.66}
+\renewcommand{\dblfloatpagefraction}{0.66}
+
+\usepackage{tabularx}
+\setlength{\extrarowheight}{4pt}
+
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}

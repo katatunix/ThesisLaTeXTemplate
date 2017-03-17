@@ -1,0 +1,9 @@
+rm *.aux
+rm *.bbl
+rm *.blg
+rm *.toc
+rm *.lot
+rm *.lof
+rm *.out
+rm *.gz
+rm *.log

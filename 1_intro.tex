@@ -1,0 +1,142 @@
+\chapter{Introduction}
+
+\section{Image}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth]{figures/princeton}
+	\caption{Princeton University}
+	\label{fig:princeton}
+\end{figure}
+
+\section{Auto-wrap verbatim text}
+\begin{lstlisting}
+May 18 04:59:58 server26 sshd[17560]: Accepted publickey for fuser from 192.168.174.10 port 39039
+
+May 18 05:00:02 server24 sshd[20566]: Accepted publickey for fuser from 192.168.174.10 port 34449
+\end{lstlisting}
+
+\section{Source code}
+\begin{lstlisting}[language=Java, numbers=left]
+public class HelloWorld {
+	public static final void main(String[] args) {
+		System.out.println("Hello, World");
+	}
+}
+\end{lstlisting}
+
+\section{Algorithm}
+\begin{figure}[h]
+	\centering
+	\begin{framed}
+		\begin{algorithmic}[1]
+			\Let{$seedWords$}{input}\Comment mandatory
+			\Let{$seedPatterns$}{input}\Comment optional
+			\Let{$newWords$}{$seedWords$}
+			\Let{$allPatterns$}{$seedPatterns$}
+			\Repeat
+			\Let{$allPatterns$}{$allPatterns\ \cup\ generatePatternsFrom(newWords)$}
+			\Let{$bestPatterns$}{$selectBestSignificantPatterns(allPatterns)$}
+			\State $removeBadPatterns(bestPatterns)$
+			\If{$sizeof(bestPatterns) = 0$}
+			\State $break$
+			\EndIf
+			\Let{$newWords$}{$extractWordsFrom(bestPatterns)\ \setminus\ seedWords$}
+			\Let{$bestWords$}{$selectBestWords(newWords)$}
+			\Let{$seedWords$}{$seedWords\ \cup\ bestWords$}
+			\Let{$newWords$}{$bestWords$}
+			\Until{$detectStoppingCondition()=true$}
+			\Let{$newPatterns$}{$allPatterns\ \setminus\ seedPatterns$}
+			\State $prune(newPatterns)$\label{line:prune}
+			\Let{$seedPatterns$}{$seedPatterns\ \cup\ newPatterns$}
+		\end{algorithmic}
+	\end{framed}
+	\caption{The general bootstrapping algorithm}
+	\label{fig:generalAlgo}
+\end{figure}
+
+\clearpage
+
+\section{Short table}
+\begin{table}[h]
+	\centering
+	\caption{The three log repositories for testing}
+	\label{tab:threeRepos}
+	\begin{footnotesize}
+		\begin{tabularx}{1.0\textwidth}{|l|>{\raggedright}X|r|r|}
+			\hline
+			\textbf{Name} & \textbf{Content} & \textbf{Size in MB} & \textbf{Number of events} \\
+			\hline
+			threat-log.csv & A CSV file containing threat logs in 54 columns. & 75 & 200,000 \\
+			\hline
+			nagios.txt & A non-csv file containing logs in nagios format concerning notifications, alerts and performance data provided by SAP. & 100 & 400,000 \\
+			\hline
+			syslog.txt & A non-csv file containing standard syslog provided by SAP. & 208 & 2,000,000 \\
+			\hline
+		\end{tabularx}
+	\end{footnotesize}
+\end{table}
+
+\section{Long table}
+\begin{footnotesize}
+	\begin{longtable}{|>{\raggedleft}p{0.05\textwidth}
+			|>{\raggedright}p{0.60\textwidth}
+			|>{\raggedright\arraybackslash}p{0.26\textwidth}|}
+		% First page heading
+		\caption{The full list of use cases}
+		\label{tab:usecases}\\
+		\hline
+		\textbf{No.} & \textbf{Description} & \textbf{Input}\\
+		\hline
+		\endfirsthead
+		% Future page heading
+		\caption[]{\longtableBeginPageHint}\\
+		\hline
+		\textbf{No.} & \textbf{Description} & \textbf{Input}\\
+		\hline
+		\endhead
+		% Page footer
+		\hline
+		\multicolumn{3}{r}{\longtableEndPageHint}\\
+		\endfoot
+		% Last page footer
+		\hline
+		\endlastfoot
+		
+		\resetCounter
+		\getCounter & Print the usage of this prototype & \\ \hline
+		\getCounter & List all repositories and tasks with bare info & \\ \hline
+		\getCounter & Create a new repository & repository name \\ \hline
+		\getCounter & Delete a repository and all of its tasks & repository ID \\ \hline
+		\getCounter & Rename a repository & repository ID, new name \\ \hline
+		\getCounter & View content (log events) of a repository & repository ID \\ \hline
+		\getCounter & Add log events (specified in a text file) to a repository & repository ID, file name \\ \hline
+		\getCounter & Remove log events (specified in a text file) from a repository & repository ID, file name \\ \hline
+		\getCounter & Clear all log events in a repository & repository ID \\ \hline
+		\getCounter & Create a new task belonging to a repository & repository ID, task name \\ \hline
+		\getCounter & Delete a task & task ID \\ \hline
+		\getCounter & Rename a task & task ID, new name \\ \hline
+		\getCounter & View basic content of a task & task ID \\ \hline
+		\getCounter & View either a list of seed patterns along with extracted words, or a list of seed words along with extracting patterns, logs can be listed along with each relation of a pattern and a word, scores will be shown in any case & task ID, a flag to indicate the type of list to be viewed, a flag to indicate the including of logs in the output \\ \hline
+		\getCounter & Add seed words to a task & task ID, a list of words \\ \hline
+		\getCounter & Add seed words from a file to a task & task ID, file name \\ \hline
+		\getCounter & Forbid words for a task, these words are considered bad ones and will never be added to the seed set & task ID, a list of words \\ \hline
+		\getCounter & Remove words from a task regardless they are seed or forbidden ones & task ID, a list of words \\ \hline
+		\getCounter & Clear all words in a task & task ID \\ \hline
+		\getCounter & Add seed patterns to a task & task ID, a list of regexes \\ \hline
+		\getCounter & Add seed patterns from a file to a task & task ID, file name \\ \hline
+		\getCounter & Add exceptional patterns to a task, these patterns are considered very good and will be taken first when finding the best ones, words extracted from these are also considered very good and no need to be filtered & task ID, a list of regexes \\ \hline
+		\getCounter & Forbid patterns for a task, these patterns are considered very bad and will never be selected & task ID, a list of regexes \\ \hline
+		\getCounter & Remove patterns from a task regardless they are seed, forbidden, or exceptional ones & task ID, a list of regexes \\ \hline
+		\getCounter & Clear all patterns in a task & task ID \\ \hline
+		\getCounter & Prune the current seed patterns, be careful as some patterns will be removed & task ID \\ \hline
+		\getCounter & Clear all words and patterns in a task & task ID \\ \hline
+		\getCounter & Update parameters for a task & task ID, iteration number, best pattern number, best word number, bad score threshold, pattern generation timeout \\ \hline
+		\getCounter & Run a task & task ID
+	\end{longtable}
+\end{footnotesize}
+\newcounter{usecaseCounter}
+\setcounter{usecaseCounter}{\arabic{myCounter}}
+\newcommand{\usecaseNumber}{\arabic{usecaseCounter}}
+
+Total use cases: \usecaseNumber.

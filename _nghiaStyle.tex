@@ -1,0 +1,39 @@
+\newcommand{\bs}{\textbackslash}
+\newcommand{\todo}[1]{\textbf{\emph{TODO:}#1}}
+
+\usepackage{algorithm, algpseudocode}
+\newcommand{\Let}[2]{\State #1 $\gets$ #2}
+\newcommand{\algoIndent}{\hspace{\algorithmicindent}}
+
+\newcounter{myCounter}
+\newcommand{\resetCounter}{\setcounter{myCounter}{0}}
+\newcommand{\getCounter}{\stepcounter{myCounter}\arabic{myCounter}}
+
+\usepackage{longtable}
+\newcommand{\longtableEndPageHint}{(continued on next page)}
+\newcommand{\longtableBeginPageHint}{(continue)}
+
+\newcommand{\roundl}{$\ulcorner$}
+\newcommand{\roundr}{$\lrcorner$}
+\newcommand{\roundtt}[1]{\roundl\texttt{#1}\roundr}
+
+\usepackage{listings}
+\ifdefined\printmode
+	\newcommand{\kwStyle}{\tt}
+\else
+	\newcommand{\kwStyle}{\color{blue}}
+\fi
+\lstset{
+	basicstyle=\tt,
+	keywordstyle=\kwStyle,
+	stepnumber=1,
+	showstringspaces=false,
+	tabsize=2,
+	breaklines=true,
+	breakatwhitespace=false,
+	frame=single,
+	breakindent=0pt,
+	xleftmargin=3.4pt,
+	xrightmargin=3.4pt,
+	breakatwhitespace=true
+}
