@@ -2,17 +2,10 @@
 	\usepackage{url}
 \else
 	\usepackage{hyperref}
-	\ifdefined\proquestmode	
-		\hypersetup{bookmarksnumbered}
-		\makeatletter
-		\hypersetup{pdftitle=\@title,pdfauthor=\@author}
-		\makeatother
-	\else
-		\hypersetup{colorlinks,bookmarksnumbered}
-		\makeatletter
-		\hypersetup{pdftitle=\@title,pdfauthor=\@author}
-		\makeatother
-	\fi
+	\hypersetup{colorlinks,bookmarksnumbered}
+	\makeatletter
+	\hypersetup{pdftitle=\@title,pdfauthor=\@author}
+	\makeatother
 \fi
 
 \renewcommand{\topfraction}{0.85}

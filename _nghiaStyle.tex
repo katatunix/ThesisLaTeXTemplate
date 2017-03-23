@@ -13,13 +13,17 @@
 \newcommand{\longtableEndPageHint}{(continued on next page)}
 \newcommand{\longtableBeginPageHint}{(continue)}
 
+\usepackage{amssymb}
 \newcommand{\roundl}{$\ulcorner$}
 \newcommand{\roundr}{$\lrcorner$}
 \newcommand{\roundtt}[1]{\roundl\texttt{#1}\roundr}
 
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+
 \usepackage{listings}
 \ifdefined\printmode
-	\newcommand{\kwStyle}{\tt}
+	\newcommand{\kwStyle}{\it}
 \else
 	\newcommand{\kwStyle}{\color{blue}}
 \fi
